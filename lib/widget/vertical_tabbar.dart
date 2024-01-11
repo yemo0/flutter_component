@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_component/widget/data_list.dart';
+import 'package:flutter_component/widget_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final currentIndex = StateProvider((ref) => 0);
@@ -15,8 +17,6 @@ class VerticalTabBar extends StatelessWidget {
 }
 
 class LeftTab extends ConsumerWidget {
-  static const content = ["TextField", "Button", "Text", "Card"];
-
   const LeftTab({super.key});
 
   Widget itemBuilder(context, index, WidgetRef ref) {
@@ -29,7 +29,7 @@ class LeftTab extends ConsumerWidget {
         height: 50,
         color: ref.watch(currentIndex) == index ? Colors.greenAccent : Colors.transparent,
         alignment: Alignment.center,
-        child: Text(content[index]),
+        child: Text(widgetData[index]["widgetName"].toString()),
       ),
     );
   }
@@ -38,23 +38,28 @@ class LeftTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView.builder(
       itemBuilder: (context, index) => itemBuilder(context, index, ref),
-      itemCount: content.length,
+      itemCount: widgetData.length,
     );
   }
 }
 
 class PageContent extends ConsumerWidget {
-
   const PageContent({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
+    List<Widget> page0() {
+      final page = <Widget>[];
+      for (var element in widgetData) {
+        page.add(const DataList());
+      }
+      return page;
+    }
+
     return PageView(
       controller: pageController,
-      children: const [
-        Center(child: Text("data1"),),
-        Center(child: Text("data2"),),
-        Center(child: Text("data3"),)
-      ],
+      children: page0()
     );
   }
 }
