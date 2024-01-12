@@ -52,7 +52,10 @@ class DataList extends ConsumerWidget {
     }
 
 
-    return GridView.builder(gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 400),
-     itemBuilder: (context, int) => itemBuilder(context, int, data), itemCount: data.length,);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GridView.builder(gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 400, mainAxisSpacing: 5, crossAxisSpacing: 5),
+       itemBuilder: (context, int) => itemBuilder(context, int, data), itemCount: data.length,),
+    );
   }
 }

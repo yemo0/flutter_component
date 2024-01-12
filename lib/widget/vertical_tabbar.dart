@@ -49,9 +49,9 @@ class PageContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    List<Widget> page0() {
+    List<Widget> page() {
       final page = <Widget>[];
-      for (var element in widgetData) {
+      for (var _ in widgetData) {
         page.add(const DataList());
       }
       return page;
@@ -59,7 +59,7 @@ class PageContent extends ConsumerWidget {
 
     return PageView(
       controller: pageController,
-      children: page0()
+      children: page()
     );
   }
 }
