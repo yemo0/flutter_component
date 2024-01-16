@@ -5,6 +5,8 @@ class MyResponsive extends StatelessWidget {
   final Widget mobileBody;
   final Widget desktopBody;
 
+  static bool isMobile = true;
+
   const MyResponsive({super.key, required this.mobileBody, required this.desktopBody});
 
   @override
@@ -12,9 +14,11 @@ class MyResponsive extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth < mobileWidth) {
         // mobile
+        isMobile = true;
         return mobileBody;
       }
       // desktop
+      isMobile = false;
       return desktopBody;
     });
   }

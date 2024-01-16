@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_component/responsive.dart';
 import 'package:flutter_component/widget/data_list.dart';
 import 'package:flutter_component/widget_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,10 +7,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final currentIndex = StateProvider((ref) => 0);
 final pageController = PageController();
 
+
 class VerticalTabBar extends StatelessWidget {
   const VerticalTabBar({super.key});
   @override
   Widget build(BuildContext context) {
+    if (MyResponsive.isMobile) {
+      return const Row(
+        children: [SizedBox(width: 100, child: LeftTab()), Expanded(child: PageContent())],
+      );
+    } 
     return  const Row(
       children: [SizedBox(width: 200, child: LeftTab()), Expanded(child: PageContent())],
     );
