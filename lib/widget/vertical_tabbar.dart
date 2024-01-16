@@ -66,6 +66,7 @@ class PageContent extends ConsumerWidget {
 
     return PageView(
       controller: pageController,
+      physics: const NeverScrollableScrollPhysics(),
       children: page()
     );
   }
