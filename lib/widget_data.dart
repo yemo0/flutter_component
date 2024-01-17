@@ -9,7 +9,7 @@ const List<Map<String, dynamic>> widgetData = [
       {
         "name": "MyInput",
         "widget": TextField(),
-      },
+      }
     ]
   },
   {

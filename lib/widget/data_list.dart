@@ -9,7 +9,7 @@ class DataList extends ConsumerWidget {
   const DataList({super.key});
 
 
-  Widget itemBuilder(BuildContext, int index, List data) {
+  Widget itemBuilder(BuildContext context, int index, List data) {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black26),
@@ -17,7 +17,9 @@ class DataList extends ConsumerWidget {
       ),
       child: Column(
         children: [
-          Expanded(child: Center(
+          Expanded(child: Container(
+            margin: const EdgeInsets.all(5),
+            alignment: Alignment.center,
             child: data[index]['widget'],
           ), ),
           SizedBox(
@@ -55,7 +57,7 @@ class DataList extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GridView.builder(gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 400, mainAxisSpacing: 5, crossAxisSpacing: 5),
-       itemBuilder: (context, int) => itemBuilder(context, int, data), itemCount: data.length,),
+       itemBuilder: (context, index) => itemBuilder(context, index, data), itemCount: data.length,),
     );
   }
 }
