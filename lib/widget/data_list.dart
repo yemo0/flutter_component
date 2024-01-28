@@ -33,11 +33,11 @@ class DataList extends ConsumerWidget {
               child:  Text(data[index]['name']),
             ),
           ),
-          SizedBox(
-            height: 40,
-            width: double.infinity,
-            child: ElevatedButton(onPressed: () {}, child: const Text("View Code")),
-          )
+          // SizedBox(
+          //   height: 40,
+          //   width: double.infinity,
+          //   child: ElevatedButton(onPressed: () {}, child: const Text("View Code")),
+          // )
         ],
       ),
     );
