@@ -6,6 +6,8 @@ import 'package:flutter_component/widgets/buttons/square.dart';
 import 'package:flutter_component/widgets/textFields/outline_textfield.dart';
 import 'package:flutter_component/widgets/textFields/rimless_textfield.dart';
 
+import 'widgets/cards/board_setting.dart';
+
 final List<WidgetDataModel> widgetData = [
   WidgetDataModel.fromJson(
     {
@@ -44,4 +46,25 @@ final List<WidgetDataModel> widgetData = [
       },
     ]
   }),
+  WidgetDataModel.fromJson({
+    "widgetName": "cards",
+    "widgetList": [
+      {
+        "name": "BoardSetting",
+        "widget": const MyBoardSetting(title: "11", children: [
+            ListTile(
+              leading: Icon(Icons.apple,),
+              title: Text("data"),
+              // contentPadding: EdgeInsets.zero,
+            ),
+            ListTile(
+              leading: Icon(Icons.tiktok),
+              title: Text("data"),
+              // contentPadding: EdgeInsets.zero,
+            )
+          ]),
+        "fileName": "board_setting.dart"
+      },
+    ]
+  })
 ];
