@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_component/responsive.dart';
-import 'package:flutter_component/widget/data_list.dart';
+import 'package:flutter_component/ui/data_list.dart';
 import 'package:flutter_component/widget_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -36,7 +36,7 @@ class LeftTab extends ConsumerWidget {
         height: 50,
         color: ref.watch(currentIndex) == index ? Colors.greenAccent : Colors.transparent,
         alignment: Alignment.center,
-        child: Text(widgetData[index]["widgetName"].toString()),
+        child: Text(widgetData[index].widgetName),
       ),
     );
   }

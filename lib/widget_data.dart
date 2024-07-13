@@ -1,65 +1,47 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_component/widget/buttons/button.dart';
-import 'package:flutter_component/widget/buttons/raw_material_button.dart';
-import 'package:flutter_component/widget/buttons/square.dart';
-import 'package:flutter_component/widget/layout/search_1.dart';
-import 'package:flutter_component/widget/textFields/outline_textfield.dart';
-import 'package:flutter_component/widget/textFields/rimless_textfield.dart';
+import 'package:flutter_component/widget_data_model.dart';
+import 'package:flutter_component/widgets/buttons/button.dart';
+import 'package:flutter_component/widgets/buttons/raw_material_button.dart';
+import 'package:flutter_component/widgets/buttons/square.dart';
+import 'package:flutter_component/widgets/textFields/outline_textfield.dart';
+import 'package:flutter_component/widgets/textFields/rimless_textfield.dart';
 
-const List<Map<String, dynamic>> widgetData = [
-  {
-    "widgetName": "TextField",
-    "widgetList": [
-      {
-        "name": "TextField",
-        "widget": TextField(),
-      },
-      {
-        "name": "Rimless",
-        "widget": MyRimlessTextField()
-      },
-      {
-        "name": "outline",
-        "widget": MyOutlineTextField()
-      }
-    ]
-  },
-  {
-    "widgetName": "Button",
+final List<WidgetDataModel> widgetData = [
+  WidgetDataModel.fromJson(
+    {
+      "widgetName": "textFields",
+      "widgetList": [
+        {
+          "name": "Rimless",
+          "widget": const MyRimlessTextField(),
+          "fileName": "rimless_textfield.dart"
+        },
+        {
+          "name": "outline",
+          "widget": const MyOutlineTextField(),
+          "fileName": "outline_textfield.dart"
+        },
+      ]
+    },
+  ),
+  WidgetDataModel.fromJson({
+    "widgetName": "buttons",
     "widgetList": [
       {
         "name": "ElevatedButton",
-        "widget": MyButton(),
+        "widget": const MyButton(),
+        "fileName": "button.dart",
       },
       {
         "name": "MySquareButton",
-        "widget": MySquareButton()
+        "widget": const MySquareButton(),
+        "fileName": "square.dart"
       },
       {
         "name": "MyRawMaterialButton",
-        "widget": MyRawMaterialButton()
-      }
-      
+        "widget": const MyRawMaterialButton(),
+        "fileName": "raw_material_button.dart"
+      },
     ]
-  },
-  {
-    "widgetName": "Text",
-    "widgetList": []
-  },
-  {
-    "widgetName": "Layout",
-    "widgetList": [
-      {
-        "name": "Search1",
-        "widget": Search1()
-      }
-    ]
-  }
+  }),
 ];
-
-
-
-
-
-
