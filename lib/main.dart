@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_component/responsive.dart';
 import 'package:flutter_component/ui/desktop_body.dart';
 import 'package:flutter_component/ui/mobile_body.dart';

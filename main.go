@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -18,11 +17,11 @@ func main() {
 	var outPut string = "./assets/widgets/"
 	copyDir(path, outPut)
 
-	fmt.Println(listFile)
+	// fmt.Println(listFile)
 }
 
 func copyFile(path, outPut string) {
-	listFile = append(listFile, path)
+	// listFile = append(listFile, path)
 
 	byte, err := os.ReadFile(path)
 	check(err)
