@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_component/ui/detail_screen.dart';
 import 'package:flutter_component/widget_data_model.dart';
@@ -12,28 +10,36 @@ class DataList extends ConsumerWidget {
 
   Widget itemBuilder(BuildContext context, int index, WidgetList data) {
     return Container(
+      height: 500,
+      width: 350,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black26),
         borderRadius: BorderRadius.circular(10),
       ),
+      clipBehavior: Clip.hardEdge,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(child: Container(
-            margin: const EdgeInsets.all(5),
-            alignment: Alignment.center,
-            child: data.widget,
-          ), ),
-          SizedBox(
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.all(5),
+              alignment: Alignment.center,
+              child: data.widget,
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
             height: 40,
             width: double.infinity,
             child: InkWell(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailScreen(widgetList: data,))),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => DetailScreen(
+                        widgetList: data,
+                      ))),
               child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.greenAccent 
-                ),
+                decoration: const BoxDecoration(color: Colors.greenAccent),
                 alignment: Alignment.center,
-                child:  Text(data.name),
+                child: Text(data.name),
               ),
             ),
           ),
@@ -42,7 +48,6 @@ class DataList extends ConsumerWidget {
     );
   }
 
-  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<WidgetList> data = widgetData[ref.read(currentIndex.notifier).state].widgetList;
@@ -52,11 +57,18 @@ class DataList extends ConsumerWidget {
       );
     }
 
+    // return Padding(
+    //   padding: const EdgeInsets.all(8.0),
+    //   child: GridView.builder(gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: crossAxisCount),
+    //    itemBuilder: (context, index) => itemBuilder(context, index, data[index]), itemCount: data.length,),
+    // );
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: GridView.builder(gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 400, mainAxisSpacing: 5, crossAxisSpacing: 5),
-       itemBuilder: (context, index) => itemBuilder(context, index, data[index]), itemCount: data.length,),
+      child: Wrap(
+        children: List.generate(data.length, (index) => itemBuilder(context, index, data[index])),
+        // children: List.generate(data.length, (index) => Container()),
+      ),
     );
   }
 }

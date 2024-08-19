@@ -22,17 +22,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  const Scaffold(
+      home: const Scaffold(
         body: MyResponsive(mobileBody: MobileBody(), desktopBody: DesktopBody()),
       )
-      // home: Column(
-      //   children: [
-      //     ElevatedButton(onPressed: () async {
-      //       final code = await rootBundle.loadString("assets/widgets/a.dart");
-      //       print(code);
-      //     }, child: const Text("click"))
-      //   ],
-      // ),
     );
   }
 }
