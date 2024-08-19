@@ -11,3 +11,9 @@ go run main.go
 3. 修改`widget_data.dart`文件
     widgetName 是文件夹名称
     widgetList > fileName 是文件的名称
+
+### 部署到cloudflare
+切换到build分支 运行
+```sh
+flutter build web --wasm
+```
