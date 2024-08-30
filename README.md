@@ -1,16 +1,18 @@
 # flutter_component
 
-A new Flutter project.
+Flutter 组件库
 
-## Getting Started
+[Visit website](https://flutter-component.pages.dev/)
 
-This project is a starting point for a Flutter application.
+### 增加组件步骤
+1. 编辑完运行生成文件
+2. 允许读取资源 pubspec.yaml assets中增加文件夹
+3. 修改`widget_data.dart`文件
+    widgetName 是文件夹名称
+    widgetList > fileName 是文件的名称
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 部署到cloudflare
+切换到build分支 运行
+```sh
+flutter build web --wasm
+```
