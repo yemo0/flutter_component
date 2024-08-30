@@ -28,16 +28,20 @@ class DataList extends ConsumerWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
             height: 40,
             width: double.infinity,
             child: InkWell(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
                   builder: (context) => DetailScreen(
-                        widgetList: data,
-                      ))),
+                    widgetList: data,
+                  ),
+                ),
+              ),
               child: Container(
-                decoration: const BoxDecoration(color: Colors.greenAccent),
+                decoration:
+                    const BoxDecoration(color: Colors.greenAccent, borderRadius: BorderRadius.all(Radius.circular(10))),
                 alignment: Alignment.center,
                 child: Text(data.name),
               ),
@@ -56,12 +60,6 @@ class DataList extends ConsumerWidget {
         child: Text("Data is empty"),
       );
     }
-
-    // return Padding(
-    //   padding: const EdgeInsets.all(8.0),
-    //   child: GridView.builder(gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: crossAxisCount),
-    //    itemBuilder: (context, index) => itemBuilder(context, index, data[index]), itemCount: data.length,),
-    // );
 
     return Padding(
       padding: const EdgeInsets.all(8.0),

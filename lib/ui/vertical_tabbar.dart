@@ -7,7 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final currentIndex = StateProvider((ref) => 0);
 final pageController = PageController();
 
-
 class VerticalTabBar extends StatelessWidget {
   const VerticalTabBar({super.key});
   @override
@@ -16,8 +15,8 @@ class VerticalTabBar extends StatelessWidget {
       return const Row(
         children: [SizedBox(width: 100, child: LeftTab()), Expanded(child: PageContent())],
       );
-    } 
-    return  const Row(
+    }
+    return const Row(
       children: [SizedBox(width: 200, child: LeftTab()), Expanded(child: PageContent())],
     );
   }
@@ -34,9 +33,13 @@ class LeftTab extends ConsumerWidget {
       },
       child: Container(
         height: 50,
-        color: ref.watch(currentIndex) == index ? Colors.greenAccent : Colors.transparent,
+        margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+        decoration: BoxDecoration(
+          color: ref.watch(currentIndex) == index ? Colors.greenAccent : Colors.transparent,
+          borderRadius: BorderRadius.circular(8),
+        ),
         alignment: Alignment.center,
-        child: Text(widgetData[index].widgetName),
+        child: Text(widgetData[index].widgetName[0].toUpperCase() + widgetData[index].widgetName.substring(1)),
       ),
     );
   }
@@ -55,7 +58,6 @@ class PageContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     List<Widget> page() {
       final page = <Widget>[];
       for (var _ in widgetData) {
@@ -64,10 +66,6 @@ class PageContent extends ConsumerWidget {
       return page;
     }
 
-    return PageView(
-      controller: pageController,
-      physics: const NeverScrollableScrollPhysics(),
-      children: page()
-    );
+    return PageView(controller: pageController, physics: const NeverScrollableScrollPhysics(), children: page());
   }
 }
