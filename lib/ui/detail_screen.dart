@@ -18,6 +18,15 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          Row(
+            children: [
+               Text(widgetList.fileName ?? ""),
+              IconButton(onPressed: () {
+                Clipboard.setData(ClipboardData(text: widgetList.fileName ?? ""));
+              }, icon: const Icon(Icons.copy))
+            ],
+          ),
+          const SizedBox(width: 10,),
           IconButton(
             onPressed: () {
               Clipboard.setData(ClipboardData(text: widgetList.fileText ?? ""));
