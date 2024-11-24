@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_component/widgets/navigation/side_menu.dart';
 
 // class TestScreen  extends StatelessWidget{}
 
@@ -14,9 +13,21 @@ const TestScreen({ Key? key }) : super(key: key);
       ),
       body: Row(
         children: [
-          SideMenu(menuItems: [SideMenuModel(iconData: Icons.abc, title: "abd"), SideMenuModel(iconData: Icons.abc, title: "abc")])
+          // SideMenu(menuItems: [SideMenuModel(iconData: Icons.abc, title: "abd"), SideMenuModel(iconData: Icons.abc, title: "abc")])
+          ElevatedButton(onPressed: () {}, style: TButton.myStyle.copyWith(
+            backgroundColor: WidgetStateProperty.all(Colors.red),
+          ), child: const Text("data"),)
         ],
       )
     );
   }
 }
+
+class TButton {
+  static ButtonStyle myStyle = ElevatedButton.styleFrom(
+  shape: const CircleBorder(),
+  padding: const EdgeInsets.all(20),
+  backgroundColor: Colors.blue
+);
+}
+

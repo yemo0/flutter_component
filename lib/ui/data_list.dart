@@ -10,8 +10,8 @@ class DataList extends ConsumerWidget {
 
   Widget itemBuilder(BuildContext context, int index, WidgetList data) {
     return Container(
-      height: 500,
-      width: 350,
+      // height: 400,
+      // width: 350,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black26),
         borderRadius: BorderRadius.circular(10),
@@ -61,12 +61,16 @@ class DataList extends ConsumerWidget {
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Wrap(
-        children: List.generate(data.length, (index) => itemBuilder(context, index, data[index])),
-        // children: List.generate(data.length, (index) => Container()),
-      ),
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      return GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: (constraints.maxWidth / 300).floor(),
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+        ),
+        itemBuilder: (context, index) => itemBuilder(context, index, data[index]),
+        itemCount: data.length,
+      );
+    });
   }
 }

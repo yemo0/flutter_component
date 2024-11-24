@@ -5,7 +5,9 @@ class MyRawMaterialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(onPressed: () {}, child: const Text("click"),);
+    return RawMaterialButton(
+      onPressed: () {},
+      child: const Text("click"),
+    );
   }
-
 }
