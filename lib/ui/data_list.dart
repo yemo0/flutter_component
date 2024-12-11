@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_component/ui/detail_screen.dart';
+import 'package:flutter_component/common.dart';
 import 'package:flutter_component/widget_data_model.dart';
-import 'package:flutter_component/ui/vertical_tabbar.dart';
 import 'package:flutter_component/widget_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class DataList extends ConsumerWidget {
   const DataList({super.key});
@@ -32,13 +32,7 @@ class DataList extends ConsumerWidget {
             height: 40,
             width: double.infinity,
             child: InkWell(
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(
-                    widgetList: data,
-                  ),
-                ),
-              ),
+              onTap: () => context.goNamed("detail", extra: data),
               child: Container(
                 decoration:
                     const BoxDecoration(color: Colors.greenAccent, borderRadius: BorderRadius.all(Radius.circular(10))),
