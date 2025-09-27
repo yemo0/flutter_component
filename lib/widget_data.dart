@@ -4,6 +4,7 @@ import 'package:flutter_component/widgets/navigation/side_menu.dart';
 import 'package:flutter_component/widgets/buttons/button.dart';
 import 'package:flutter_component/widgets/buttons/raw_material_button.dart';
 import 'package:flutter_component/widgets/buttons/square.dart';
+import 'package:flutter_component/widgets/pages/language/language.dart';
 import 'package:flutter_component/widgets/textFields/outline_textfield.dart';
 import 'package:flutter_component/widgets/textFields/rimless_textfield.dart';
 
@@ -67,6 +68,12 @@ final List<WidgetDataModel> widgetData = [
         ]),
         "fileName": "board_setting.dart"
       },
+    ]
+  }),
+  WidgetDataModel.fromJson({
+    "widgetName": "pages",
+    "widgetList": [
+      {"name": "Language page", "widget": const LanguagePage(), "fileName": "language/language.dart"},
     ]
   })
 ];

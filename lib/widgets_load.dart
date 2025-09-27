@@ -2,8 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_component/widget_data.dart';
 
 final widgetsLoadData = {};
-void widgetsLoad () async {
-  
+void widgetsLoad() async {
   for (var v in widgetData) {
     for (var element in v.widgetList) {
       if (element.fileName == null) continue;
